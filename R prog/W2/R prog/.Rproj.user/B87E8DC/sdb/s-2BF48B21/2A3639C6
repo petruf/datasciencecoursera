@@ -1,0 +1,16 @@
+{
+    "contents" : "pollutantmean <- function(directory, pollutant, id = 1:332) {\n  ## 'directory' is a character vector of length 1 indicating\n  ## the location of the CSV files\n  \n  ## 'pollutant' is a character vector of length 1 indicating\n  ## the name of the pollutant for which we will calculate the\n  ## mean; either \"sulfate\" or \"nitrate\".\n  \n  ## 'id' is an integer vector indicating the monitor ID numbers\n  ## to be used\n  \n  ## Return the mean of the pollutant across all monitors list\n  ## in the 'id' vector (ignoring NA values)\n  setimp <- data.frame()\n  ## setwd(directory)\n  files <- list.files(directory) \n    for (i in id){\n      datimp <- read.csv(files[i])\n      setimp <- rbind(setimp,datimp)\n    }\n  polset<-(setimp[[pollutant]])\n  ## setwd(\"C:\\\\Users\\\\Pípa desktop\\\\Desktop\\\\R prog\\\\R prog\\\\\")\n  mean(polset,na.rm=TRUE)\n}",
+    "created" : 1398200961490.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2406467776",
+    "id" : "2A3639C6",
+    "lastKnownWriteTime" : 1398201120,
+    "path" : "C:/Users/Pípa desktop/Desktop/R prog/R prog/pollutantmean.R",
+    "project_path" : "pollutantmean.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

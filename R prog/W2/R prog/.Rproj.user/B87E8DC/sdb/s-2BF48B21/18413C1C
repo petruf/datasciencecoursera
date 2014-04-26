@@ -1,0 +1,16 @@
+{
+    "contents" : "complete <- function(directory, id = 1:332) {\n  ## 'directory' is a character vector of length 1 indicating\n  ## the location of the CSV files\n  \n  ## 'id' is an integer vector indicating the monitor ID numbers\n  ## to be used\n  \n  ## Return a data frame of the form:\n  ## id nobs\n  ## 1  117\n  ## 2  1041\n  ## ...\n  ## where 'id' is the monitor ID number and 'nobs' is the\n  ## number of complete cases\n  compimp <- data.frame()\n  compno <- vector()\n  fileid <- vector()\n  setwd(directory)\n  files <- list.files(directory)\n  for (i in id){\n    datimp <- read.csv(files[i])\n    compno <- c(compno, sum(complete.cases(datimp), na.rm = TRUE))\n    fileid <- c(fileid,i)\n  }\n  compimp <- data.frame(id = fileid, nobs = compno)\n  compimp\n}",
+    "created" : 1398200959964.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2440902995",
+    "id" : "18413C1C",
+    "lastKnownWriteTime" : 1398193581,
+    "path" : "C:/Users/Pípa desktop/Desktop/R prog/R prog/complete.R",
+    "project_path" : "complete.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
